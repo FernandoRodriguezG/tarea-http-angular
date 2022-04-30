@@ -1,0 +1,35 @@
+<h1>Tarea request HTTP</h1>
+<button type="button" (click)="clear(); showConfig()">get 1</button>
+<button type="button" (click)="clear(); showEmployees()">get Empleados(Mongo)</button>
+<button type="button" (click)="clear(); showManyConfig()">get Todos</button>
+<span *ngIf="config">
+    <p>UserId = "{{config.userId}}"</p>
+    <p>Id =  "{{config.id}}"</p>
+    <p>Title =  "{{config.title}}" </p>
+    <p>Completed = {{config.completed}}</p>
+</span>
+
+
+<span *ngIf="configArray">
+    <ul>
+        <li *ngFor="let u of configArray">
+            <p>UserId = "{{u.userId}}"</p>
+            <p>Id =  "{{u.id}}"</p>
+            <p>Title =  "{{u.title}}" </p>
+            <p>Completed = {{u.completed}}</p>
+        </li>
+    </ul>
+    
+</span>
+
+
+<span *ngIf="employees">
+    <ul>
+        <li *ngFor="let e of employees">
+            <p>Nombre = "{{e.name}}"</p>
+            <p>Email =  "{{e.email}}"</p>
+            <p>Salary =  "{{e.salary}}" </p>
+        </li>
+    </ul>
+    
+</span>
