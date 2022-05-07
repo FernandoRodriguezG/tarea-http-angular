@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todos,Employee, ConfigService } from '../config.service';
+import { Todos,Employee,id, ConfigService } from '../config.service';
 
 @Component({
   selector: 'app-config',
@@ -10,6 +10,9 @@ export class ConfigComponent implements OnInit {
   config: Todos | undefined;
   configArray: Todos[] = [];
   employees: Employee[]=[];
+  ide: Todos | undefined;
+  employee: Employee = {name:"",email:"",salary:""};
+  
   constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {
@@ -34,5 +37,14 @@ export class ConfigComponent implements OnInit {
   showEmployees(){
     this.configService.getEmployees()
     .subscribe(employ => { this.employees = employ })
+  }
+
+  post(){
+    this.configService.setJSon()
+    .subscribe(i => {this.ide = i});
+  }
+
+  saveEmploye():void{
+    this.configService.setEmpleado(this.employee);
   }
 }

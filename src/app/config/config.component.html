@@ -2,6 +2,7 @@
 <button type="button" (click)="clear(); showConfig()">get 1</button>
 <button type="button" (click)="clear(); showEmployees()">get Empleados(Mongo)</button>
 <button type="button" (click)="clear(); showManyConfig()">get Todos</button>
+<button type="button" (click)="clear(); post()">Peticion POST</button>
 <span *ngIf="config">
     <p>UserId = "{{config.userId}}"</p>
     <p>Id =  "{{config.id}}"</p>
@@ -21,8 +22,6 @@
     </ul>
     
 </span>
-
-
 <span *ngIf="employees">
     <ul>
         <li *ngFor="let e of employees">
@@ -33,3 +32,19 @@
     </ul>
     
 </span>
+
+<span *ngIf="ide">
+    <h3>{{ide.id}}</h3>    
+</span>
+
+<br><br>
+<label  for="name-pet">Nombre:</label><br>
+<input #tipo type="text" id="name-pet"  [(ngModel)]="employee.name" placeholder="Nombre">
+<br><br>
+<label for="age-pet">Email:</label><br>
+<input #edad type="text" id="age-pet" [(ngModel)]="employee.email" placeholder="Email">
+<br><br>
+<label for="raza-pet">Salario:</label><br>
+<input #raza type="text" id="raza-pet" [(ngModel)]="employee.salary" placeholder="Salario">
+<br><br>
+<button (click)="saveEmploye()"> Guardar Empleado</button>
